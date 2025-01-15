@@ -3,38 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with EMI Pie Chart</title>
     <link rel="stylesheet" href="styles.css">
-    <title>EMI CALCULATOR</title>
 </head>
 <body>
-    
+    <div class="calculator-container">
+        <div class="calculator">
+            <input type="text" class="display" id="display" disabled>
+            <div class="buttons">
+                <button class="button" onclick="appendValue('7')">7</button>
+                <button class="button" onclick="appendValue('8')">8</button>
+                <button class="button" onclick="appendValue('9')">9</button>
+                <button class="button" onclick="appendValue('/')">/</button>
+                <button class="button" onclick="appendValue('4')">4</button>
+                <button class="button" onclick="appendValue('5')">5</button>
+                <button class="button" onclick="appendValue('6')">6</button>
+                <button class="button" onclick="appendValue('*')">*</button>
+                <button class="button" onclick="appendValue('1')">1</button>
+                <button class="button" onclick="appendValue('2')">2</button>
+                <button class="button" onclick="appendValue('3')">3</button>
+                <button class="button" onclick="appendValue('-')">-</button>
+                <button class="button" onclick="appendValue('0')">0</button>
+                <button class="button" onclick="appendValue('.')">.</button>
+                <button class="button clear" onclick="clearDisplay()">C</button>
+                <button class="button" onclick="appendValue('+')">+</button>
+                <button class="button-equals" onclick="calculateResult()">=</button>
+                <button class="button-show-emi" onclick="toggleEMISection()">EMI</button>
+            </div>
+        </div>
 
-    <div class="calculator">
-        <h1>EMI Calculator</h1>
-        <label>Loan Amount (₹):</label>
-        <input type="number" id="loanAmount" placeholder="Enter loan amount">
-        
-        <label for="interestRate">Interest Rate (%):</label>
-        <input type="number" id="interestRate" placeholder="Enter interest rate">
-        
-        <label for="loanTenure">Loan Tenure (years):</label>
-        <input type="number" id="loanTenure" placeholder="Enter tenure in years">
-        
-        <button onclick="calculateEMI()">Calculate EMI</button>
-        
-        <h2>Monthly EMI: ₹<h1 id="emiResult"></h1></h2>
+        <div class="emi-section" id="emiSection">
+            <input type="number" id="principal" placeholder="Principal Amount" oninput="updateChart()">
+            <input type="number" id="rate" placeholder="Annual Interest Rate (%)" oninput="updateChart()">
+            <input type="number" id="time" placeholder="Time Period (Years)">
+            <button onclick="calculateEMI()">Calculate EMI</button>
+            <div class="emi-result" id="emiResult"></div>
+            <canvas id="emiPieChart"></canvas>
+        </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="calculator.js"></script>
     <script src="EMI.js"></script>
 </body>
 </html>
