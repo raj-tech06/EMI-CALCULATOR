@@ -66,44 +66,12 @@ function calculateResult() {
 }
 
 
-// function calculateResult() {
-//     // Step 1: Handle normal calculator result (like 2 + 2)
-//     try {
-//         const normalResult = eval(display.value);  // Regular calculation (e.g., 2+2)
-//         display.value = normalResult;  // Show the result in the display
-//     } catch (error) {
-//         alert('Invalid input');
-//         clearDisplay();  // Clear display if there's an error
-//         return;
-//     }
-
-//     // Step 2: Calculate EMI based on the inputs for Principal, Rate, and Time
-//     let principal = parseFloat(document.querySelector("#principal").value);  // Get Principal value
-//     let rate = parseFloat(document.querySelector("#rate").value) / 12 / 100;  // Get Monthly Rate
-//     let time = parseFloat(document.querySelector("#time").value) * 12;  // Get Time in months
-
-//     // Only calculate EMI if valid inputs are provided
-//     if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
-//         // EMI Formula
-//         let emi = (principal * rate * Math.pow(1 + rate, time)) / (Math.pow(1 + rate, time) - 1);
-//         let totalPayment = emi * time;  // Total payment over the loan period
-//         let totalInterest = totalPayment - principal;  // Total interest paid
-
-//         // Display EMI result below the calculator
-//         document.querySelector("#emiResult").innerText = `EMI: ₹${emi.toFixed(2)}`;
-        
-//         // Update the pie chart with EMI breakdown (Principal vs Interest)
-//         updatePieChart(principal, totalInterest);
-//     } else {
-//         document.querySelector("#emiResult").innerText = '';  // Clear EMI result if no valid inputs
-//     }
-// }
-
 let emiSection = document.querySelector("#emiSection");
 let emiPieChart;
 
 function toggleEMISection() {
-    emiSection.style.display = emiSection.style.display === 'none' || emiSection.style.display === '' ? 'block' : 'none';
+    emiSection.style.display = emiSection.style.display === 'none' || 
+    emiSection.style.display === '' ? 'block' : 'none';
 }
 
 function updatePieChart(principal = 0, interest = 0) {
