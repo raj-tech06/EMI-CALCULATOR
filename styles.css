@@ -92,13 +92,14 @@ body {
 
 .emi-section {
     display: none;
-    /* flex-direction: column; */
+  
+    flex-direction: column;
 }
 
 .emi-section input {
-    width: calc(50% - 20px);
-    /* width: 30%;
-    height: 20%; */
+    /* width: calc(50% - 20px); */
+    width: 93%;
+    height: 20%;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -118,15 +119,22 @@ body {
 }
 
 .emi-result {
+    color: white;
     margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 1.2em;
     text-align: center;
 }
 
-#emiPieChart {
-    width: 300px; 
-    height: 300px; 
+
+.divchart{
+    width: 10%;
+    margin-top: 0%;
+    margin-right: 0%;
 }
+/* #emiPieChart {
+    width:30% 
+} */
 
 
 

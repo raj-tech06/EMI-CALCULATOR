@@ -9,7 +9,22 @@
 <body>
     <div class="calculator-container">
         <div class="calculator">
+
+
+            <div class="emi-section" id="emiSection">
+                <input type="number" id="principal" placeholder="Principal Amount" oninput="updateChart()"> <br>
+                <input type="number" id="rate" placeholder="Annual Interest Rate (%)" oninput="updateChart()"> <br>
+                <input type="number" id="time" placeholder="Time Period (Years)"><br>
+                <div class="emi-result" id="emiResult"></div>
+            </div>
+
+
+
             <input type="text" class="display" id="display" disabled>
+           
+           
+
+
             <div class="buttons">
                 <button class="button" onclick="appendValue('7')">7</button>
                 <button class="button" onclick="appendValue('8')">8</button>
@@ -32,15 +47,16 @@
             </div>
         </div>
 
-        <div class="emi-section" id="emiSection">
-            <input type="number" id="principal" placeholder="Principal Amount" oninput="updateChart()">
-            <input type="number" id="rate" placeholder="Annual Interest Rate (%)" oninput="updateChart()">
-            <input type="number" id="time" placeholder="Time Period (Years)">
-            <button onclick="calculateEMI()">Calculate EMI</button>
-            <div class="emi-result" id="emiResult"></div>
-            <canvas id="emiPieChart"></canvas>
-        </div>
+       
     </div>
+    <!-- <button onclick="calculateEMI()">Calculate EMI</button> -->
+
+    <div class="divchart"><canvas id="emiPieChart" width="200px" height="200px"></canvas></div>
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="calculator.js"></script>
     <script src="EMI.js"></script>
