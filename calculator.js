@@ -1,33 +1,45 @@
-const display1 = document.getElementById('display');
+// const display1 = document.querySelector("#display");
+
+// function appendValue(value) {
+//     display.value += value;
+// }
+// const 
+// function appendValue(value) {
+//     principal.value += value;
+// }
+
+
+// function clearDisplay() {
+//     display.value = '';
+// }
+
+// function calculateResult() {
+//     try {
+//         display.value = eval(display.value);
+//     } catch (error) {
+//         alert('Invalid input');
+//         clearDisplay();
+//     }
+// }
+
+
+
+
+
+
+
+const display = document.querySelector("#display");
 
 function appendValue(value) {
     display.value += value;
 }
 
-function clearDisplay() {
-    display.value = '';
-}
+const principa=document.querySelector("#principal")
 
-function calculateResult() {
-    try {
-        display.value = eval(display.value);
-    } catch (error) {
-        alert('Invalid input');
-        clearDisplay();
-    }
-}
+// function appendValue(value) {
+//     principal.value += value;
+// }
 
-
-
-
-
-
-
-const display = document.getElementById('display');
-
-function appendValue(value) {
-    display.value += value;
-}
 
 function clearDisplay() {
     display.value = '';
@@ -35,22 +47,22 @@ function clearDisplay() {
 
 
 function calculateResult() {
-    // Step 1: Handle normal calculator result (like 2 + 2)
+    // Handle normal calculator result 
     try {
-        const normalResult = eval(display.value);  // Regular calculation (e.g., 2+2)
-        display.value = normalResult;  // Show the result in the display
+        const normalResult = eval(display.value); 
+        display.value = normalResult;  
     } catch (error) {
         alert('Invalid input');
-        clearDisplay();  // Clear display if there's an error
+        clearDisplay();  
         return;
     }
 
-    // Step 2: Calculate EMI based on the inputs for Principal, Rate, and Time
-    let principal = parseFloat(document.querySelector("#principal").value);  // Get Principal value
-    let rate = parseFloat(document.querySelector("#rate").value) / 12 / 100;  // Get Monthly Rate
-    let time = parseFloat(document.querySelector("#time").value) * 12;  // Get Time in months
+    //Calculate EMI based on the inputs for Principal, Rate, and Time
+    let principal = parseFloat(document.querySelector("#principal").value);  
+    let rate = parseFloat(document.querySelector("#rate").value) / 12 / 100;  
+    let time = parseFloat(document.querySelector("#time").value) * 12;  
 
-    // Only calculate EMI if valid inputs are provided
+ 
     if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
         // EMI Formula
         let emi = (principal * rate * Math.pow(1 + rate, time)) / (Math.pow(1 + rate, time) - 1);
@@ -73,6 +85,11 @@ function toggleEMISection() {
     emiSection.style.display = emiSection.style.display === 'none' || 
     emiSection.style.display === '' ? 'block' : 'none';
 }
+
+
+
+
+//chart pie
 
 function updatePieChart(principal = 0, interest = 0) {
     let data = {
