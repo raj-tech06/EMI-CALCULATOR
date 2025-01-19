@@ -27,19 +27,30 @@
 
 
 
-
+// const Principal=document.querySelector("#principal")
+// const  rate=document.querySelector("#rate")
+// const time=document.querySelector("#time")
 const display = document.querySelector("#display");
 
 function appendValue(value) {
     display.value += value;
 }
 
-const principa=document.querySelector("#principal")
+    // principal.value += value;
+    // rate.value += value;
+    // time.value += value;
+
+
 
 // function appendValue(value) {
 //     principal.value += value;
 // }
-
+// function appendValue(value) {
+//     rate.value += value;
+// }
+// function appendValue(value) {
+//     time.value += value;
+// }
 
 function clearDisplay() {
     display.value = '';
