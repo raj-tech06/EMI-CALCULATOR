@@ -132,10 +132,51 @@ body {
     margin-top: 0%;
     margin-right: 0%;
 }
-/* #emiPieChart {
-    width:30% 
-} */
+/* Media Queries for smaller screens */
+@media screen and (max-width: 768px) {
+    .calculator-container {
+        /* margin-left: 44%; */
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
+    .button {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+
+    .button-equals, .button-show-emi {
+        font-size: 1.2rem;
+        grid-column: span 2;
+    }
+
+    .emi-section input {
+        width: 100%;
+    }
+
+    .emi-section button {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .display {
+        font-size: 1.2em;
+        padding: 8px;
+    }
+
+    .button {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    .button-equals, .button-show-emi {
+        font-size: 1rem;
+    }
+}
 
 
