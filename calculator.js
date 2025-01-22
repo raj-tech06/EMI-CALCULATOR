@@ -1,56 +1,10 @@
-// const display1 = document.querySelector("#display");
 
-// function appendValue(value) {
-//     display.value += value;
-// }
-// const 
-// function appendValue(value) {
-//     principal.value += value;
-// }
-
-
-// function clearDisplay() {
-//     display.value = '';
-// }
-
-// function calculateResult() {
-//     try {
-//         display.value = eval(display.value);
-//     } catch (error) {
-//         alert('Invalid input');
-//         clearDisplay();
-//     }
-// }
-
-
-
-
-
-
-// const Principal=document.querySelector("#principal")
-// const  rate=document.querySelector("#rate")
-// const time=document.querySelector("#time")
-const display = document.querySelector("#display");
+let display = document.querySelector("#display");
 
 function appendValue(value) {
     display.value += value;
 }
 
-    // principal.value += value;
-    // rate.value += value;
-    // time.value += value;
-
-
-
-// function appendValue(value) {
-//     principal.value += value;
-// }
-// function appendValue(value) {
-//     rate.value += value;
-// }
-// function appendValue(value) {
-//     time.value += value;
-// }
 
 function clearDisplay() {
     display.value = '';
@@ -93,8 +47,7 @@ let emiSection = document.querySelector("#emiSection");
 let emiPieChart;
 
 function toggleEMISection() {
-    emiSection.style.display = emiSection.style.display === 'none' || 
-    emiSection.style.display === '' ? 'block' : 'none';
+    emiSection.style.display = emiSection.style.display === 'none' || emiSection.style.display === '' ? 'block' : 'none';
 }
 
 
@@ -135,3 +88,36 @@ function updateChart() {
     // Update chart with placeholder data
     updatePieChart(principal, (principal * rate) / 100);
 }
+
+
+
+
+
+// --------------------------------------scientific calculator code------------------------------------------------
+
+// let display = document.querySelector(#"display");
+
+let sccal = document.querySelector("#sc-cal");
+
+function sc() {
+    sccal.style.display =   sccal.style.display === 'none' ||   sccal.style.display === '' ? 'block' : 'none';
+}
+
+
+
+function clearDisplay() {
+    display.value = '';
+}
+
+function appendValue(value) {
+    if (value === '=') {
+        try {
+            display.value = eval(display.value);
+        } catch (e) {
+            display.value = 'Error';
+        }
+    } else {
+        display.value += value;
+    }
+}
+
