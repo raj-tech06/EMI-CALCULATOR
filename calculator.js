@@ -44,7 +44,7 @@ function calculateResult() {
 
 
 let emiSection = document.querySelector("#emiSection");
-let emiPieChart;
+
 
 function toggleEMISection() {
     emiSection.style.display = emiSection.style.display === 'none' || emiSection.style.display === '' ? 'block' : 'none';
@@ -54,6 +54,8 @@ function toggleEMISection() {
 
 
 //chart pie
+
+let emiPieChart;
 
 function updatePieChart(principal = 0, interest = 0) {
     let data = {
@@ -105,19 +107,20 @@ function sc() {
 
 
 
+
 function clearDisplay() {
     display.value = '';
 }
 
-function appendValue(value) {
-    if (value === '=') {
-        try {
-            display.value = eval(display.value);
-        } catch (e) {
-            display.value = 'Error';
-        }
-    } else {
-        display.value += value;
-    }
-}
+// function (value) {
+//     if (value === '=') {
+//         try {
+//             display.value = eval(display.value);
+//         } catch (e) {
+//             display.value = 'Error';
+//         }
+//     } else {
+//         display.value += value;
+//     }
+// }
 

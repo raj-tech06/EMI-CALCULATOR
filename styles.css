@@ -19,7 +19,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(66, 225, 31, 0.2);
-    /* width: 300px; */
+    width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -43,7 +43,7 @@ body {
     margin-bottom: 20px;
 }
 
-.button {
+.button{
     background: #007BFF;
     color: white;
     border: none;
@@ -51,7 +51,7 @@ body {
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
-    /* transition: background 0.3s; */
+    transition: background 0.3s;
 }
 
 .button:active {
@@ -73,7 +73,7 @@ body {
     cursor: pointer;
     /* background: #28a745; */
     background-color: rgb(19, 240, 19);
-    grid-column: span 2;
+    grid-column: span 1;
 }
 
 .button-show-emi {
@@ -84,7 +84,7 @@ body {
     cursor: pointer;
     /* background: #6c757d; */
 
-    grid-column: span 2;
+    grid-column: span 1;
 }
 
 
@@ -96,16 +96,8 @@ body {
     flex-direction: column;
 }
 
-.emi-section input {
-    /* width: calc(50% - 20px); */
-    width: 93%;
-    height: 20%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-}
+
+
 
 .emi-section button {
     background: #17a2b8;
@@ -132,6 +124,57 @@ body {
     margin-top: 0%;
     margin-right: 0%;
 }
+
+/* --------------------------------------------------------------------------- */
+
+.button-show-sc{
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    grid-column: span 1;
+}
+
+.sc-cal button{
+    display: none;
+}
+
+.sc-cal{
+    display: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Media Queries for smaller screens */
 @media screen and (max-width: 768px) {
     .calculator-container {
