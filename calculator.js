@@ -102,7 +102,7 @@ function updateChart() {
 let sccal = document.querySelector("#sc-cal");
 
 function sc() {
-    sccal.style.display =   sccal.style.display === 'none' ||   sccal.style.display === '' ? 'block' : 'none';
+    sccal.style.display =   sccal.style.display === 'none' ||   sccal.style.display === 'block' ? 'block' : 'none';
 }
 
 
@@ -112,15 +112,15 @@ function clearDisplay() {
     display.value = '';
 }
 
-// function (value) {
-//     if (value === '=') {
-//         try {
-//             display.value = eval(display.value);
-//         } catch (e) {
-//             display.value = 'Error';
-//         }
-//     } else {
-//         display.value += value;
-//     }
-// }
+function appendValue(value) {
+    if (value === '=') {
+        try {
+            display.value = eval(display.value);
+        } catch (e) {
+            display.value = 'Error';
+        }
+    } else {
+        display.value += value;
+    }
+}
 
