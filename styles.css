@@ -49,10 +49,48 @@ body {
     border: none;
     padding: 15px;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1.5em;
     cursor: pointer;
     transition: background 0.3s;
 }
+
+.buttons1{
+    /* background: #007BFF; */
+    background-color:white;
+    color: orange;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .button:active {
     /* background: #0056b3; */
@@ -89,6 +127,15 @@ body {
 
 
 /* --------------------------emi------------------------------ */
+.emi-section input{
+    width: 99%;
+    height: 35px;
+    margin-bottom: 3px;
+    border: none;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
 
 .emi-section {
     display: none;
@@ -128,23 +175,34 @@ body {
 /* --------------------------------------------------------------------------- */
 
 .button-show-sc{
+    font-size: 0.8rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     grid-column: span 1;
 }
 
-.sc-cal {
-    display: none;
+.button1{
+    border: none;
+    width: 69px;
+    height: 44px;
+    margin-left: 2px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #007BFF;
 }
 
-.sc-cal{
-    /* display: none; */
+
+
+
+
+/* .sc-cal{
+  
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-bottom: 20px;
-}
+} */
 
 
 
@@ -199,10 +257,12 @@ body {
 
     .emi-section input {
         width: 100%;
+     
     }
 
     .emi-section button {
         width: 50%;
+       
     }
 }
 
