@@ -97,13 +97,6 @@
 
 // // --------------------------------------scientific calculator code------------------------------------------------
 
-// // let display = document.querySelector(#"display");
-
-// let sccal = document.querySelector("#sc-cal");
-
-// function sc() {
-//     sccal.style.display =   sccal.style.display === 'none' ||   sccal.style.display === 'block' ? 'block' : 'none';
-// }
 
 
 
@@ -123,9 +116,9 @@ function appendValue(value) {
 }
 
 // Function to clear the display
-function clearDisplay() {
-    display.value = '';  // Clear the display
-}
+// function clearDisplay() {
+//     display.value = '';  // Clear the display
+// }
 
 // Function to calculate the result of the expression
 function calculateResult() {
@@ -252,18 +245,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// // Access the display element where results will be shown
-// let display = document.getElementById("display");
 
-// // Function to append clicked values to the display
-// function appendValue(value) {
-//     display.value += value;
+// ------------ac or del--------------
+
+function clearDisplay() {
+    display.value = '';  // Clear the main display
+    document.getElementById("emiResult").textContent = '';  // Clear the EMI result
+    // document.getElementById("emiPieChart").innerHTML='none';
+}
+
+
+// ================end======================
+
+// function clearEMIInputs() {
+//     // Get all input fields for EMI
+//     let principalInput = document.getElementById("principal");
+//     let rateInput = document.getElementById("rate");
+//     let timeInput = document.getElementById("time");
+
+//     // Create an interval to delete one character at a time
+//     let interval = setInterval(function() {
+//         // Remove one character from each input field
+//         principalInput.value = principalInput.value.slice(0, -1);
+//         rateInput.value = rateInput.value.slice(0, -1);
+//         timeInput.value = timeInput.value.slice(0, -1);
+
+//         // If all inputs are empty, stop the interval
+//         if (principalInput.value === '' && rateInput.value === '' && timeInput.value === '') {
+//             clearInterval(interval);
+//         }
+//     }, 100);  // Remove character every 100 milliseconds
 // }
 
-// // Function to clear the display
-// function clearDisplay() {
-//     display.value = '';
-// }
 
 
 
@@ -290,7 +303,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// ------------------------------dono sath me aa rahe ha  input
+
+// ------------------------------dono sath me aa rahe ha  input----------------------------------------
+
+
 
 // // Function to calculate EMI (Equated Monthly Installment)
 // function calculateEMI(principal, rate, time) {
