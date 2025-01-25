@@ -92,15 +92,6 @@ body {
 
 
 
-.button:active {
-    /* background: #0056b3; */
-    background: red;
-    /* background: white; */
-}
-
-.button.clear {
-    background: rgb(253, 4, 4);
-}
 
 .button-equals {
     color: #f0f0f0;
@@ -124,6 +115,11 @@ body {
 
     grid-column: span 1;
 }
+.button-show-emi:active{
+    background: aquamarine;
+}
+
+
 
 
 /* --------------------------emi------------------------------ */
@@ -182,6 +178,41 @@ body {
     grid-column: span 1;
 }
 
+.button-show-sc:active{
+    background: aquamarine;
+}
+#acButton:active{
+    font-size: x-large;
+    background: khaki;
+    /* background: rgba(97, 22, 22, 0.852); */
+}
+
+
+.button.clear{
+    background: rgb(253, 4, 4);
+    /* background-color: aqua; */
+}
+.button.clear:active{
+    color: black;
+        font-size: x-large;
+ 
+}
+.button:active {
+    background: red;
+    /* font-size: x-large; */
+    font-style: italic;
+
+ }
+.buttons1:active{
+inline-size: 2px;
+    /* background: burlywood; */
+    background: orange;
+}
+
+
+
+
+
 .button1{
     border: none;
     width: 69px;
@@ -191,95 +222,35 @@ body {
     border-radius: 5px;
     background-color: #007BFF;
 }
-
-
-
-
-
-/* .sc-cal{
+.button1:active {
   
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin-bottom: 20px;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media Queries for smaller screens */
-@media screen and (max-width: 768px) {
-    .calculator-container {
-        /* margin-left: 44%; */
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .buttons {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .button {
-        padding: 12px;
-        font-size: 0.9em;
-    }
-
-    .button-equals, .button-show-emi {
-        font-size: 1.2rem;
-        grid-column: span 2;
-    }
-
-    .emi-section input {
-        width: 100%;
-     
-    }
-
-    .emi-section button {
-        width: 50%;
-       
-    }
+    background: red;
+   
 }
 
-@media screen and (max-width: 480px) {
-    .display {
-        font-size: 1.2em;
-        padding: 8px;
-    }
 
-    .button {
-        padding: 10px;
-        font-size: 0.8em;
-    }
 
-    .button-equals, .button-show-emi {
-        font-size: 1rem;
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -255,30 +255,94 @@ function clearDisplay() {
 }
 
 
+
+
+
+
+let clearOneInput=()=>{
+    display.value = display.value.slice(0, -1); 
+}
+
+
+
+
+
 // ================end======================
 
-// function clearEMIInputs() {
-//     // Get all input fields for EMI
+// -------------ek sath 3no me delete chal raha ha-------------------
+
+// let clearOneInput=()=>{
+
 //     let principalInput = document.getElementById("principal");
 //     let rateInput = document.getElementById("rate");
 //     let timeInput = document.getElementById("time");
 
-//     // Create an interval to delete one character at a time
-//     let interval = setInterval(function() {
-//         // Remove one character from each input field
+ 
+//       if (principalInput.value > 0 || rateInput.value > 1 || timeInput.value> 0) {
+
 //         principalInput.value = principalInput.value.slice(0, -1);
+
+
 //         rateInput.value = rateInput.value.slice(0, -1);
 //         timeInput.value = timeInput.value.slice(0, -1);
-
-//         // If all inputs are empty, stop the interval
-//         if (principalInput.value === '' && rateInput.value === '' && timeInput.value === '') {
-//             clearInterval(interval);
-//         }
-//     }, 100);  // Remove character every 100 milliseconds
+//                 }
+      
 // }
+// -----------------ek sath 3no me delete chal raha ha endddddddd-------------------
 
 
 
+// ------------------input usi par click kare to delete-------------
+
+let pridel=()=>{
+        let principalInput = document.getElementById("principal");
+
+    principalInput.value = principalInput.value.slice(0, -1);
+
+}
+let ratedel=()=>{
+    let rateInput = document.getElementById("rate");
+
+    rateInput.value = rateInput.value.slice(0, -1);
+
+}
+
+let timedel=()=>{
+    let timeInput = document.getElementById("time");
+    timeInput.value = timeInput.value.slice(0, -1);
+
+}
+
+
+// ------------------input usi par click kare to delete endddd-------------
+
+
+
+
+
+
+// --------------------------------------------------------------------------
+//     let principalInput = document.getElementById("principal");
+
+// let ac = document.getElementById("acButton");
+// // let but=document.querySelector("#clearOneInput")
+// ac.addEventListener("click", function(){
+//     // alert("W")
+// // principalInput.value=''; //ek sathb delete ke  liye
+//         principalInput.value = principalInput.value.slice(0, -1); //  ek ek kar ke delete ke liye 
+
+// });
+
+
+
+//     let rateInput = document.getElementById("rate");
+//     let ac1 = document.getElementById("acButton");
+//     ac.addEventListener("click", function(){
+//         if(rateInput.value > 1){
+//         rateInput.value = rateInput.value.slice(0, -1); //  ek ek kar ke delete ke liye 
+//         }
+
+//     });
 
 
 

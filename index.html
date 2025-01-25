@@ -11,9 +11,9 @@
         <div class="calculator">
             <!-- EMI Section -->
             <div class="emi-section" id="emiSection" style="display: none;">
-                <input type="number" id="principal" oninput="updateChart()" placeholder="Principal Amount"> <br>
-                <input type="number" id="rate" oninput="updateChart()" placeholder="Annual Interest Rate (%)"> <br>
-                <input type="number" id="time" oninput="updateChart()" placeholder="Time Period (Years)"> <br>
+                <input type="number" id="principal" oninput="updateChart()" onclick="pridel()" placeholder="Principal Amount"> <br>
+                <input type="number" id="rate" oninput="updateChart()" onclick="ratedel()" placeholder="Annual Interest Rate (%)"> <br>
+                <input type="number" id="time" oninput="updateChart()" onclick="timedel()" placeholder="Time Period (Years)"> <br>
                 <div class="emi-result" id="emiResult"></div>
             </div>
 
@@ -56,7 +56,7 @@
                 <button class="button1" onclick="appendValue('sin(')">sin</button>
                 <button class="button1" onclick="appendValue('cos(')">cos</button>
                 <button class="button1" onclick="appendValue('tan(')">tan</button>
-                <button class="button1" onclick="appendValue('sqrt(')">√</button>
+                <button class="button1" value="√" onclick="appendValue('sqrt(')">√</button>
             </div>
         </div>
     </div>
