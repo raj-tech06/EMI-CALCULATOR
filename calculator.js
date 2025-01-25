@@ -10,7 +10,25 @@ let display = document.getElementById("display");
 
 function calculateResult() {
     try {
-        let expression = display.value;  // Get the current expression from the display
+   
+        const principal = document.getElementById("principal").value;
+        const rate = document.getElementById("rate").value;
+        const time = document.getElementById("time").value;
+        
+if(principal){
+        let p = parseFloat(principal);  // Principal amount
+    let r = parseFloat(rate) / 100 / 12;  // Monthly interest rate (annual rate divided by 12)
+    let n = parseFloat(time) * 12;  // Time period in months
+
+    // EMI formula: (p * r * (1 + r)^n) / ((1 + r)^n - 1)
+     let result5= (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+   result5.toFixed(2);  // Round the result to 2 decimal places
+console.log(result5)
+display.value = result5;
+return result5;
+}
+      else{  let expression = display.value;  // Get the current expression from the display
 
         // Replace scientific functions (like sin, cos, sqrt) with their JavaScript equivalents
         expression = expression.replace(/sin\(([^)]+)\)/g, 'Math.sin($1)');
@@ -20,16 +38,25 @@ function calculateResult() {
 
         // Evaluate the mathematical expression (this calculates the result)
         let result = eval(expression);
-
-        // If the result is not a number or infinity, show an error
-        if (isNaN(result) || result === Infinity) {
-            throw new Error("Invalid expression");
-        }
+        console.log(result)
+        display.value = result;
+      }
+       // If the result is not a number or infinity, show an error
+        // if (isNaN(result) || result === Infinity) {
+        //     throw new Error("Invalid expression");
+        // }
 
         // Show the result on the display
-        display.value = result;
-
-    } catch (error) {
+        
+            
+            // (result5!="NaN")?
+     
+    
+   
+    
+    }
+    
+     catch (error) {
         // If there's an error, show "Error" on the display
         display.value = 'Error';
     }
@@ -58,16 +85,16 @@ function showScientificCalculator() {
 }
 
 // Function to calculate EMI (Equated Monthly Installment)
-function calculateEMI(principal, rate, time) {
-    let p = parseFloat(principal);  // Principal amount
-    let r = parseFloat(rate) / 100 / 12;  // Monthly interest rate (annual rate divided by 12)
-    let n = parseFloat(time) * 12;  // Time period in months
+// function calculateEMI(principal, rate, time) {
+//     let p = parseFloat(principal);  // Principal amount
+//     let r = parseFloat(rate) / 100 / 12;  // Monthly interest rate (annual rate divided by 12)
+//     let n = parseFloat(time) * 12;  // Time period in months
 
-    // EMI formula: (p * r * (1 + r)^n) / ((1 + r)^n - 1)
-    let emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+//     // EMI formula: (p * r * (1 + r)^n) / ((1 + r)^n - 1)
+//     let emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
 
-    return emi.toFixed(2);  // Round the result to 2 decimal places
-}
+//     return emi.toFixed(2);  // Round the result to 2 decimal places
+// }
 
 // Function to update the EMI chart and display EMI result
 function updateChart() {
@@ -79,9 +106,9 @@ function updateChart() {
     // If all the required fields have values, calculate EMI and update the chart
     if (principal && rate && time) {
         // Calculate the EMI
-        const emi = calculateEMI(principal, rate, time);
+        const emi = calculateResult();
         // Display the calculated EMI
-        document.getElementById("emiResult").textContent = `EMI: ₹${emi}`;
+        // document.getElementById("emiResult").textContent = `EMI: ₹${emi}`;
 
         // Get the context for the EMI pie chart
         const emiPieChart = document.getElementById("emiPieChart").getContext("2d");
@@ -136,6 +163,13 @@ document.addEventListener("DOMContentLoaded", function() {
 // ------------ac or del--------------
 
 function clearDisplay() {
+    let principalInput = document.getElementById("principal");
+    let rateInput = document.getElementById("rate");
+    let timeInput = document.getElementById("time");
+
+    principalInput.value='';
+    timeInput.value ='';
+    rateInput.value='';
     display.value = '';  // Clear the main display
     document.getElementById("emiResult").textContent = '';  // Clear the EMI result
     // document.getElementById("emiPieChart").innerHTML='none';
@@ -161,7 +195,7 @@ let clearOneInput=()=>{
     let rateInput = document.getElementById("rate");
     let timeInput = document.getElementById("time");
 let id =document.getElementById("inputid").innerHTML
-console.log(id)
+
     if(id=="principal"){
          principalInput.value = principalInput.value.slice(0, -1); 
     }
@@ -187,7 +221,7 @@ let appendValue=(value)=>{
     let rateInput = document.getElementById("rate");
     let timeInput = document.getElementById("time");
 let id =document.getElementById("inputid").innerHTML
-console.log(id)
+
     if(id=="principal"){
          principalInput.value += value; 
     }

@@ -204,7 +204,7 @@ body {
 
  }
 .buttons1:active{
-inline-size: 2px;
+/* inline-size: 2px; */
     /* background: burlywood; */
     background: orange;
 }
