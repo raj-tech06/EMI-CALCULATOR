@@ -259,9 +259,9 @@ function clearDisplay() {
 
 
 
-let clearOneInput=()=>{
-    display.value = display.value.slice(0, -1); 
-}
+// let clearOneInput=()=>{
+//     display.value = display.value.slice(0, -1); 
+// }
 
 
 
@@ -271,11 +271,16 @@ let clearOneInput=()=>{
 
 // -------------ek sath 3no me delete chal raha ha-------------------
 
-// let clearOneInput=()=>{
+let clearOneInput=(id)=>{
 
-//     let principalInput = document.getElementById("principal");
+    let principalInput = document.getElementById("principal");
 //     let rateInput = document.getElementById("rate");
 //     let timeInput = document.getElementById("time");
+
+    switch(id){
+        case principal:  principalInput.value = principalInput.value.slice(0, -1);
+
+    }
 
  
 //       if (principalInput.value > 0 || rateInput.value > 1 || timeInput.value> 0) {
@@ -287,34 +292,59 @@ let clearOneInput=()=>{
 //         timeInput.value = timeInput.value.slice(0, -1);
 //                 }
       
-// }
+}
 // -----------------ek sath 3no me delete chal raha ha endddddddd-------------------
 
 
 
 // ------------------input usi par click kare to delete-------------
 
-let pridel=()=>{
-        let principalInput = document.getElementById("principal");
+// let pridel=()=>{
+//         let principalInput = document.getElementById("principal");
 
-    principalInput.value = principalInput.value.slice(0, -1);
+//     principalInput.value = principalInput.value.slice(0, -1);
 
-}
-let ratedel=()=>{
-    let rateInput = document.getElementById("rate");
+// }
+// let ratedel=()=>{
+//     let rateInput = document.getElementById("rate");
 
-    rateInput.value = rateInput.value.slice(0, -1);
+//     rateInput.value = rateInput.value.slice(0, -1);
 
-}
+// }
 
-let timedel=()=>{
-    let timeInput = document.getElementById("time");
-    timeInput.value = timeInput.value.slice(0, -1);
+// let timedel=()=>{
+//     let timeInput = document.getElementById("time");
+//     timeInput.value = timeInput.value.slice(0, -1);
 
-}
+// }
 
 
 // ------------------input usi par click kare to delete endddd-------------
+
+
+
+
+let pridel=()=>{
+            let principalInput = document.getElementById("principal");
+            pr
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
