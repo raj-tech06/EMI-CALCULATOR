@@ -1,126 +1,13 @@
 
-// let display = document.querySelector("#display");
-
-// function appendValue(value) {
-//     display.value += value;
-// }
-
-
-// function clearDisplay() {
-//     display.value = '';
-// }
-
-
-// function calculateResult() {
-//     // Handle normal calculator result 
-//     try {
-//         const normalResult = eval(display.value); 
-//         display.value = normalResult;  
-//     } catch (error) {
-//         alert('Invalid input');
-//         clearDisplay();  
-//         return;
-//     }
-
-//     //Calculate EMI based on the inputs for Principal, Rate, and Time
-//     let principal = parseFloat(document.querySelector("#principal").value);  
-//     let rate = parseFloat(document.querySelector("#rate").value) / 12 / 100;  
-//     let time = parseFloat(document.querySelector("#time").value) * 12;  
-
- 
-//     if (!isNaN(principal) && !isNaN(rate) && !isNaN(time)) {
-//         // EMI Formula
-//         let emi = (principal * rate * Math.pow(1 + rate, time)) / (Math.pow(1 + rate, time) - 1);
-//         let totalPayment = emi * time;  // Total payment over the loan period
-//         let totalInterest = totalPayment - principal;  // Total interest paid
-
-//         // Append EMI result to the same input field (display)
-//         display.value += ` | EMI: ₹${emi.toFixed(2)}`;  // Append EMI result to the regular result
-        
-//         // Update the pie chart with EMI breakdown (Principal vs Interest)
-//         updatePieChart(principal, totalInterest);
-//     }
-// }
-
-
-// let emiSection = document.querySelector("#emiSection");
-
-
-// function toggleEMISection() {
-//     emiSection.style.display = emiSection.style.display === 'none' || emiSection.style.display === '' ? 'block' : 'none';
-// }
-
-
-
-
-// //chart pie
-
-// let emiPieChart;
-
-// function updatePieChart(principal = 0, interest = 0) {
-//     let data = {
-//         labels: ['Principal Amount', 'Interest Amount'],
-//         datasets: [
-//             {
-//                 label: 'EMI Breakdown',
-//                 data: [principal, interest],
-//                 backgroundColor: ['#007bff', '#dc3545'],
-//                 hoverOffset: 4,
-//             },
-//         ],
-//     };
-
-//     let config = {
-//         type: 'pie',
-//         data: data,
-//     };
-
-//     if (emiPieChart) {
-//         emiPieChart.destroy();
-//     }
-
-//     let ctx = document.querySelector("#emiPieChart").getContext('2d');
-//     emiPieChart = new Chart(ctx, config);
-// }
-
-// function updateChart() {
-//     let principal = parseFloat(document.querySelector("#principal").value) || 0;
-//     let rate = parseFloat(document.querySelector("#rate").value) || 0;
-
-//     // Update chart with placeholder data
-//     updatePieChart(principal, (principal * rate) / 100);
-// }
-
-
-
-
-
-// // --------------------------------------scientific calculator code------------------------------------------------
-
-
-
-
-
-
-
-
-
-// ============================alg reult==========
-
 // Display element where calculations will be shown
 let display = document.getElementById("display");
 
 // Function to append a value to the display when buttons are clicked
-function appendValue(value) {
-    display.value += value;  // Add the clicked value to the display
-}
-
-// Function to clear the display
-// function clearDisplay() {
-//     display.value = '';  // Clear the display
+// function appendValue(value) {
+//     display.value += value;  // Add the clicked value to the display
 // }
 
-// Function to calculate the result of the expression
+
 function calculateResult() {
     try {
         let expression = display.value;  // Get the current expression from the display
@@ -259,9 +146,6 @@ function clearDisplay() {
 
 
 
-// let clearOneInput=()=>{
-//     display.value = display.value.slice(0, -1); 
-// }
 
 
 
@@ -271,221 +155,82 @@ function clearDisplay() {
 
 // -------------ek sath 3no me delete chal raha ha-------------------
 
-let clearOneInput=(id)=>{
+let clearOneInput=()=>{
 
     let principalInput = document.getElementById("principal");
-//     let rateInput = document.getElementById("rate");
-//     let timeInput = document.getElementById("time");
-
-    switch(id){
-        case principal:  principalInput.value = principalInput.value.slice(0, -1);
-
+    let rateInput = document.getElementById("rate");
+    let timeInput = document.getElementById("time");
+let id =document.getElementById("inputid").innerHTML
+console.log(id)
+    if(id=="principal"){
+         principalInput.value = principalInput.value.slice(0, -1); 
     }
+        else if(id=="rate"){
+            rateInput.value = rateInput.value.slice(0, -1);;
+        }
 
+        else if(id=="time"){
+            timeInput.value =timeInput.value.slice(0, -1);;
+        }
+      else if(id=="display"){  
+    display.value = display.value.slice(0, -1); 
+      }
  
-//       if (principalInput.value > 0 || rateInput.value > 1 || timeInput.value> 0) {
+ 
 
-//         principalInput.value = principalInput.value.slice(0, -1);
-
-
-//         rateInput.value = rateInput.value.slice(0, -1);
-//         timeInput.value = timeInput.value.slice(0, -1);
-//                 }
-      
 }
-// -----------------ek sath 3no me delete chal raha ha endddddddd-------------------
+
+// --------------------------number to input set----------------
+let appendValue=(value)=>{
+
+    let principalInput = document.getElementById("principal");
+    let rateInput = document.getElementById("rate");
+    let timeInput = document.getElementById("time");
+let id =document.getElementById("inputid").innerHTML
+console.log(id)
+    if(id=="principal"){
+         principalInput.value += value; 
+    }
+        else if(id=="rate"){
+         rateInput.value += value; 
 
 
+        }
 
-// ------------------input usi par click kare to delete-------------
+        else if(id=="time"){
+         timeInput.value += value; 
 
-// let pridel=()=>{
-//         let principalInput = document.getElementById("principal");
+        }
+      else if(id=="display"){  
+    display.value += value; 
 
-//     principalInput.value = principalInput.value.slice(0, -1);
+      }
+ 
+ 
 
-// }
-// let ratedel=()=>{
-//     let rateInput = document.getElementById("rate");
-
-//     rateInput.value = rateInput.value.slice(0, -1);
-
-// }
-
-// let timedel=()=>{
-//     let timeInput = document.getElementById("time");
-//     timeInput.value = timeInput.value.slice(0, -1);
-
-// }
-
-
-// ------------------input usi par click kare to delete endddd-------------
-
-
-
+}
 
 let pridel=()=>{
-            let principalInput = document.getElementById("principal");
-            pr
+             
+             document.getElementById("inputid").innerHTML="principal";
+     
+
+}
+let ratedel=()=>{
+             
+    document.getElementById("inputid").innerHTML="rate";
 
 
 }
+let timedel=()=>{
+             
+    document.getElementById("inputid").innerHTML="time";
 
 
+}
+let displaydel=()=>{
+             
+    document.getElementById("inputid").innerHTML="display";
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// --------------------------------------------------------------------------
-//     let principalInput = document.getElementById("principal");
-
-// let ac = document.getElementById("acButton");
-// // let but=document.querySelector("#clearOneInput")
-// ac.addEventListener("click", function(){
-//     // alert("W")
-// // principalInput.value=''; //ek sathb delete ke  liye
-//         principalInput.value = principalInput.value.slice(0, -1); //  ek ek kar ke delete ke liye 
-
-// });
-
-
-
-//     let rateInput = document.getElementById("rate");
-//     let ac1 = document.getElementById("acButton");
-//     ac.addEventListener("click", function(){
-//         if(rateInput.value > 1){
-//         rateInput.value = rateInput.value.slice(0, -1); //  ek ek kar ke delete ke liye 
-//         }
-
-//     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ------------------------------dono sath me aa rahe ha  input----------------------------------------
-
-
-
-// // Function to calculate EMI (Equated Monthly Installment)
-// function calculateEMI(principal, rate, time) {
-//     let p = parseFloat(principal); // Principal amount
-//     let r = parseFloat(rate) / 100 / 12; // Monthly interest rate
-//     let n = parseFloat(time) * 12; // Time period in months
-
-//     let emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-//     return emi.toFixed(2); // Return the EMI value rounded to 2 decimal places
-// }
-
-// // Function to calculate the normal calculation result
-// function calculateResult() {
-//     try {
-//         let expression = display.value;
-
-//         // Replace scientific functions with their JavaScript equivalents
-//         expression = expression.replace(/sin\(([^)]+)\)/g, 'Math.sin($1)');
-//         expression = expression.replace(/cos\(([^)]+)\)/g, 'Math.cos($1)');
-//         expression = expression.replace(/tan\(([^)]+)\)/g, 'Math.tan($1)');
-//         expression = expression.replace(/sqrt\(([^)]+)\)/g, 'Math.sqrt($1)');
-
-//         // Calculate result of the expression
-//         let result = eval(expression);
-        
-//         // If result is a valid number, show it
-//         if (!isNaN(result) && result !== Infinity) {
-//             display.value = result;
-//         } else {
-//             display.value = 'Error';
-//         }
-
-//         // Now check if EMI inputs are provided
-//         const principal = document.getElementById("principal").value;
-//         const rate = document.getElementById("rate").value;
-//         const time = document.getElementById("time").value;
-
-//         if (principal && rate && time) {
-//             // Calculate EMI if EMI fields are filled
-//             const emi = calculateEMI(principal, rate, time);
-//             // Show both results (normal calculation result and EMI) in the display
-//             display.value += ` | EMI: ₹${emi}`;
-//         }
-
-//     } catch (error) {
-//         // If any error occurs, show 'Error'
-//         display.value = 'Error';
-//     }
-// }
-
-// // Function to update EMI result live as inputs change
-// function updateEMIResult() {
-//     const principal = document.getElementById("principal").value;
-//     const rate = document.getElementById("rate").value;
-//     const time = document.getElementById("time").value;
-
-//     // If all EMI inputs are filled, update EMI result
-//     if (principal && rate && time) {
-//         const emi = calculateEMI(principal, rate, time);
-//         document.getElementById("emiResult").textContent = `EMI: ₹${emi}`;
-//     } else {
-//         document.getElementById("emiResult").textContent = ''; // Clear EMI result if inputs are not filled
-//     }
-// }
-
-// // Function to toggle the visibility of the EMI section
-// function toggleEMISection() {
-//     const emiSection = document.getElementById('emiSection');
-//     // Toggle the display: if it's hidden, show it; if it's visible, hide it
-//     if (emiSection.style.display === 'none') {
-//         emiSection.style.display = 'block';
-//     } else {
-//         emiSection.style.display = 'none';
-//     }
-// }
-
-// // Function to show the scientific calculator section
-// function showScientificCalculator() {
-//     const scCalculator = document.getElementById('sc-cal');
-//     // Toggle the display of scientific calculator
-//     if (scCalculator.style.display === 'none' || scCalculator.style.display === '') {
-//         scCalculator.style.display = 'block';
-//     } else {
-//         scCalculator.style.display = 'none';
-//     }
-// }
-
-
+}

@@ -210,7 +210,11 @@ inline-size: 2px;
 }
 
 
-
+.inputid{
+    width: 200px;
+    color: black;
+    background-color: antiquewhite;
+}
 
 
 .button1{
