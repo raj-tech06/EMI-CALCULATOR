@@ -1,0 +1,145 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .calculator {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .value-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .value-display input[type="number"] {
+    background: #4e73df;
+    color: white;
+    width: 120px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: white;
+  }
+  
+  .results-chart {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .result-item,
+  .result-intrest {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: 5px;
+  }
+  
+  .result-item h3,
+  .result-intrest h3 {
+    margin: 0;
+    color: #555;
+  }
+  
+  .result-item p,
+  .result-intrest p {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 10px 0 0;
+    color: #4a4a4a;
+  }
+  
+  .result-intrest:hover {
+    background-color: #1cc88a;
+  }
+  
+  #chart-container {
+    height: 300px;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .calculator,
+    .results-chart {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .results {
+      flex-direction: column;
+    }
+  
+    .result-item,
+    .result-intrest {
+      margin: 5px 0;
+    }
+  }
+  
+  
