@@ -89,3 +89,35 @@ loanTypeSelect.addEventListener('change', updateEMI);
 
 // प्रारंभिक अपडेट
 updateEMI();
+
+
+
+
+
+
+// switch-----------
+
+
+
+ 
+    // Function to open the SweetAlert pop-up with an iframe
+    function openSweetAlert(event) {
+        event.preventDefault(); // Prevent default link behavior
+  
+        Swal.fire({
+          html: `<iframe src="calculator.html" frameborder="0"></iframe>`, // Embed your own page inside iframe
+          width: '80%',
+          heightAuto: false,
+          showCloseButton: true, 
+          showConfirmButton: false, // Hide the confirm button
+          focusConfirm: false, // Don't focus on the confirm button
+          background: 'transparent', // Set transparent background for the pop-up
+          position: 'center', // Center the pop-up
+          customClass: {
+            popup: 'no-scroll' // Apply custom class to prevent horizontal overflow
+          }
+        });
+      }
+  
+  
+  

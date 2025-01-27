@@ -54,7 +54,7 @@ body {
     background-color: #ddd;
     color: black;
   } 
-  
+
   
   /* -----------------------------nav end---------------------------- */
   
@@ -174,4 +174,19 @@ body {
   
   /* --------------------------emi end--------------------------------------- */
   
-  
+
+  /* switch---------- */
+
+    /* Style the iframe inside SweetAlert pop-up */
+    .swal2-popup iframe {
+      /* margin-top: 80px; */
+      width: 80%;
+      height: 600px; 
+      border: none; 
+      /* overflow-x: hidden;  */
+    }
+
+    /* Prevent horizontal overflow (sliding) in pop-up */
+    .swal2-popup.no-scroll {
+      overflow-x: hidden;
+    }
