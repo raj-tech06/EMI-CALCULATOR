@@ -4,129 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMI कैलकुलेटर</title>
+    <link rel="stylesheet" href="emi.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            height: auto;
-            background-color: transparent;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            padding: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .input-section {
-            flex: 1;
-            min-width: 300px;
-            margin-right: 20px;
-        }
-        .input-group {
-            margin-bottom: 20px;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bolder;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: black;
-        }
-        input[type="range"] {
-            width: 100%;
-        }
-        .value-display {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 5px;
-        }
-        .value-display input[type="number"] {
-            background: #4e73df;
-            color: white;
-            width: 120px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-        }
-        select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-            background-color: white;
-        }
-        .results-chart {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-        }
-        .results {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .result-item, .result-intrest {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-            padding: 15px;
-            background-color: #f0f0f0;
-            border-radius: 10px;
-            margin: 5px;
-        }
-        .result-item h3, .result-intrest h3 {
-            margin: 0;
-            color: #555;
-        }
-        .result-item p, .result-intrest p {
-            font-size: 1.4em;
-            font-weight: bold;
-            margin: 10px 0 0;
-            color: #4a4a4a;
-        }
-        .result-intrest:hover {
-            background-color: #1cc88a;
-        }
-        #chart-container {
-            height: 300px;
-            width: 100%;
-        }
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                height: auto;
-            }
-            .input-section, .results-chart {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            .results {
-                flex-direction: column;
-            }
-            .result-item, .result-intrest {
-                margin: 5px 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -142,18 +21,18 @@
             </div>
             <div class="input-group">
                 <label for="loan-amount">लोन की राशि (₹):</label>
-                <input type="range" id="loan-amount" min="10000" max="10000000" step="10000" value="1000000">
+                <input type="range" id="loan-amount" min="1000" max="10000000" step="10000" value="1000000">
                 <div class="value-display">
                     <span id="loan-amount-display">₹10,00,000</span>
-                    <input type="number" id="loan-amount-input" min="10000" max="10000000" step="10000" value="1000000">
+                    <input type="number" id="loan-amount-input" min="1000" max="10000000" step="10000" value="1000000">
                 </div>
             </div>
             <div class="input-group">
                 <label for="interest-rate">ब्याज दर (% प्रति वर्ष):</label>
-                <input type="range" id="interest-rate" min="5" max="20" step="0.1" value="10">
+                <input type="range" id="interest-rate" min="1" max="20" step="0.1" value="10">
                 <div class="value-display">
                     <span id="interest-rate-display">10%</span>
-                    <input type="number" id="interest-rate-input" min="5" max="20" step="0.1" value="10">
+                    <input type="number" id="interest-rate-input" min="1" max="20" step="0.1" value="10">
                 </div>
             </div>
             <div class="input-group">
@@ -185,98 +64,7 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const loanAmountInput = document.getElementById('loan-amount');
-        const interestRateInput = document.getElementById('interest-rate');
-        const loanTermInput = document.getElementById('loan-term');
-        const loanAmountDisplay = document.getElementById('loan-amount-display');
-        const interestRateDisplay = document.getElementById('interest-rate-display');
-        const loanTermDisplay = document.getElementById('loan-term-display');
-        const loanAmountNumberInput = document.getElementById('loan-amount-input');
-        const interestRateNumberInput = document.getElementById('interest-rate-input');
-        const loanTermNumberInput = document.getElementById('loan-term-input');
-        const monthlyEmiDisplay = document.getElementById('monthly-emi');
-        const totalInterestDisplay = document.getElementById('total-interest');
-        const totalPaymentDisplay = document.getElementById('total-payment');
-
-        let chart;
-
-        function updateEMI() {
-            const loanAmount = parseFloat(loanAmountInput.value);
-            const interestRate = parseFloat(interestRateInput.value) / 100 / 12; // मासिक ब्याज दर
-            const loanTerm = parseInt(loanTermInput.value) * 12; // महीनों में अवधि
-            
-            const emi = calculateEMI(loanAmount, interestRate, loanTerm);
-            const totalPayment = emi * loanTerm;
-            const totalInterest = totalPayment - loanAmount;
-            
-            monthlyEmiDisplay.textContent = '₹' + emi.toLocaleString('en-IN', {maximumFractionDigits: 0});
-            totalInterestDisplay.textContent = '₹' + totalInterest.toLocaleString('en-IN', {maximumFractionDigits: 0});
-            totalPaymentDisplay.textContent = '₹' + totalPayment.toLocaleString('en-IN', {maximumFractionDigits: 0});
-
-            updateChart(loanAmount, totalInterest);
-        }
-
-        function calculateEMI(loanAmount, interestRate, loanTerm) {
-            return (loanAmount * interestRate * Math.pow(1 + interestRate, loanTerm)) / (Math.pow(1 + interestRate, loanTerm) - 1);
-        }
-
-        function updateChart(principal, interest) {
-            const ctx = document.getElementById('emi-chart').getContext('2d');
-            
-            if (chart) {
-                chart.destroy();
-            }
-
-            chart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ['मूल राशि', 'ब्याज'],
-                    datasets: [{
-                        data: [principal, interest],
-                        backgroundColor: ['#4e73df', '#1cc88a'],
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                }
-            });
-        }
-
-        function updateInputFromSlider(slider, input, display, prefix = '', suffix = '') {
-            const value = parseFloat(slider.value);
-            input.value = value;
-            display.textContent = prefix + value.toLocaleString('en-IN') + suffix;
-            updateEMI();
-        }
-
-        function updateSliderFromInput(input, slider, display, prefix = '', suffix = '') {
-            let value = parseFloat(input.value);
-            if (isNaN(value)) {
-                value = parseFloat(slider.min);
-            }
-            value = Math.max(parseFloat(slider.min), Math.min(parseFloat(slider.max), value));
-            slider.value = value;
-            input.value = value;
-            display.textContent = prefix + value.toLocaleString('en-IN') + suffix;
-            updateEMI();
-        }
-
-        loanAmountInput.addEventListener('input', () => updateInputFromSlider(loanAmountInput, loanAmountNumberInput, loanAmountDisplay, '₹'));
-        interestRateInput.addEventListener('input', () => updateInputFromSlider(interestRateInput, interestRateNumberInput, interestRateDisplay, '', '%'));
-        loanTermInput.addEventListener('input', () => updateInputFromSlider(loanTermInput, loanTermNumberInput, loanTermDisplay, '', ' वर्ष'));
-
-        loanAmountNumberInput.addEventListener('input', () => updateSliderFromInput(loanAmountNumberInput, loanAmountInput, loanAmountDisplay, '₹'));
-        interestRateNumberInput.addEventListener('input', () => updateSliderFromInput(interestRateNumberInput, interestRateInput, interestRateDisplay, '', '%'));
-        loanTermNumberInput.addEventListener('input', () => updateSliderFromInput(loanTermNumberInput, loanTermInput, loanTermDisplay, '', ' वर्ष'));
-
-        const loanTypeSelect = document.getElementById('loan-type');
-        loanTypeSelect.addEventListener('change', updateEMI);
-
-        // प्रारंभिक अपडेट
-        updateEMI();
-    </script>
+   
+  <script src="emi.js"></script>
 </body>
 </html>
