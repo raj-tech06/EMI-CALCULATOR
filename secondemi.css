@@ -194,7 +194,32 @@ body {
 
 
 
-    /* about=========== */
+    /* services=========== */
+
+    .services-footer {
+      background-color: #e9f7f5;  /* Light teal background */
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid #00bfae;
+      font-family: Arial, sans-serif;
+    }
+    
+    .services-description {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .services-description strong {
+      font-weight: bold;
+      color: #007f70;  /* Dark teal for emphasis */
+    }
+    
+
+
+
+
     /* ------------------- About Section --------------------- */
 
 .about-section {
@@ -261,4 +286,28 @@ body {
   .about-section p {
       font-size: 0.9em;
   }
+}
+
+
+
+/* footer------------------ */
+
+.emi-footer {
+  background-color: burlywood;  /* Light gray background */
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+.emi-disclaimer {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.emi-disclaimer strong {
+  font-weight: bold;
+  color: #333;
 }

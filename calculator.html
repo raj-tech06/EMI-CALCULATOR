@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator with EMI Pie Chart</title>
     <link rel="stylesheet" href="calculator.css">
+
+    <!-- font awsome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
     <div class="calculator-container">
@@ -23,9 +26,9 @@
             <!-- Buttons -->
             <div class="buttons">
                 <button class="button-show-emi" onclick="toggleEMISection()">EMI</button>
-                <button class="button-show-sc" onclick="showScientificCalculator()">Scientific Calculator</button>
+                <button class="button-show-sc" onclick="showScientificCalculator()"><i class="fa-solid fa-toggle-on"></i> <br>Scientific</button>
                 <!-- <button id="acButton" onclick="clearEMIInputs()">AC</button> -->
-                <button id="acButton" onclick="clearOneInput()">C</button>
+                <button id="acButton" onclick="clearOneInput()"><i class="fa-solid fa-xmark"></i></button>
                 <button class="button clear" onclick="clearDisplay()">AC</button>
 
                 <button class="button" onclick="appendValue('7')">7</button>
