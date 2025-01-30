@@ -13,23 +13,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
+    <!-- Navbar container -->
+<div class="navbar">
+    <!-- Checkbox for mobile menu -->
+    <input type="checkbox" id="menuToggle" class="menu-toggle" />
+    
+    <!-- Label (hamburger) icon for the checkbox -->
+    <label for="menuToggle" class="menu-icon">&#9776;</label>
+    
+    <!-- Navbar links -->
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href=".services-footer">Services</a></li>
+        <li><a href="#" onclick="openSweetAlert(event)">Switch</a></li>
+        <li><a href="#">Register</a></li>
 
-    <div class="navbar">
-        <!-- <input type="checkbox" id="toggle-menu" class="toggle-menu"> -->
-        <!-- <label for="toggle-menu" class="hamburger-icon">&#9776;</label> -->
-        <!-- <ul class="navbar-links"> -->
-    <!-- <div class="navbar"> -->
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href=".services-footer">Services</a></li>
-          <li><a href="#" onclick="openSweetAlert(event)">Switch</a></li>
-          <li><a href="#">Register</a></li>
-
-        </ul>
-      </div>
-
-
+    </ul>
+  </div>
+  
     <div class="container">
         <div class="input-section">
             <div class="input-group">
@@ -68,7 +70,7 @@
         </div>
         <div class="results-chart">
             <div class="results">
-                <div class="result-item">
+                <div class="result-itemE">
                     <h3>मासिक EMI</h3>
                     <p id="monthly-emi">₹9,650</p>
                 </div>
@@ -76,7 +78,7 @@
                     <h3>कुल ब्याज</h3>
                     <p id="total-interest">₹13,16,074</p>
                 </div>
-                <div class="result-item">
+                <div class="result-itemT">
                     <h3>कुल भुगतान</h3>
                     <p id="total-payment">₹23,16,074</p>
                 </div>
