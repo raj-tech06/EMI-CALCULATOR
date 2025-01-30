@@ -7,6 +7,11 @@
     <!-- <link rel="stylesheet" href="emi.css"> -->
     <link rel="stylesheet" href="secondemi.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
     <!-- sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 <!-- font awsome -->
@@ -24,8 +29,8 @@
     <!-- Navbar links -->
     <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href=".services-footer">Services</a></li>
+        <li><a href="#about-section">About</a></li>
+        <li><a href="#services-footer">Services</a></li>
         <li><a href="#" onclick="openSweetAlert(event)">Switch</a></li>
         <li><a href="#">Register</a></li>
 
@@ -48,7 +53,8 @@
                 <input type="range" id="loan-amount" min="1000" max="10000000" step="10000" value="1000000">
                 <div class="value-display">
                     <span id="loan-amount-display">₹10,00,000</span>
-                    <input type="number" id="loan-amount-input" min="1000" max="10000000" step="10000" value="1000000">
+                    <input type="number" id="loan-amount-input" min="1000" max="10000000" step="10000" value="1000000"  data-aos="fade-left"   data-aos-easing="linear"
+                    data-aos-duration="1500">
                 </div>
             </div>
             <div class="input-group">
@@ -56,7 +62,8 @@
                 <input type="range" id="interest-rate" min="1" max="20" step="0.1" value="10">
                 <div class="value-display">
                     <span id="interest-rate-display">10%</span>
-                    <input type="number" id="interest-rate-input" min="1" max="20" step="0.1" value="10">
+                    <input type="number" id="interest-rate-input" min="1" max="20" step="0.1" value="10" data-aos="fade-left"   data-aos-easing="linear"
+                    data-aos-duration="1500">
                 </div>
             </div>
             <div class="input-group">
@@ -64,12 +71,15 @@
                 <input type="range" id="loan-term" min="1" max="30" step="1" value="20">
                 <div class="value-display">
                     <span id="loan-term-display">20 वर्ष</span>
-                    <input type="number" id="loan-term-input" min="1" max="30" step="1" value="20">
+                    <input type="number" id="loan-term-input" min="1" max="30" step="1" value="20" data-aos="fade-left"   data-aos-easing="linear"
+                    data-aos-duration="1500">
                 </div>
             </div>
         </div>
-        <div class="results-chart">
-            <div class="results">
+        <div class="results-chart" >
+            <div class="results"  data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1000">
                 <div class="result-itemE">
                     <h3>मासिक EMI</h3>
                     <p id="monthly-emi">₹9,650</p>
@@ -83,7 +93,9 @@
                     <p id="total-payment">₹23,16,074</p>
                 </div>
             </div>
-            <div id="chart-container">
+            <div id="chart-container"  data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000">
                 <canvas id="emi-chart"></canvas>
             </div>
         </div>
@@ -92,17 +104,18 @@
 
 
 
-    <div class="services-footer">
+    <div id="services-footer" data-aos="fade-down"
+    data-aos-easing="linear"
+    data-aos-duration="1500">
         <p class="services-description">
           <strong>Our Services:</strong> Hum aapko high-quality financial solutions provide karte hain, jo aapke needs ke mutabik tailored hoti hain. Humare services mein <strong>Loan Assistance, EMI Calculation, Financial Planning</strong>, aur bohot kuch shamil hain. Aapko hamare services ka faida uthana ho, toh humein contact karein!
         </p>
       </div>
       
 
-    <section class="about-section">
-        <h2>About Us</h2>
+    <section id="about-section">
+        <img src="img/About-Us-PNG-Isolated-File.png" width="200px" height="100px" data-aos="zoom-in-up">
         <p>We are a passionate team dedicated to providing innovative solutions for your needs. Our mission is to empower businesses and individuals by offering tailored services that drive success. With years of experience and a focus on excellence, we are committed to making a difference.</p>
-        <img src="" alt="About Us Image">
 
     </section>
 
@@ -112,13 +125,28 @@
     <div class="emi-footer">
         <i class="fa-solid fa-house"></i>
         <i class="fa-solid fa-magnifying-glass"></i>
-
+<hr>
         <p class="emi-disclaimer">
           <strong>Disclaimer:</strong> Ye EMI calculator sirf ek andaza dene ke liye hai. Actual EMI aapke loan ke terms, interest rate aur bank policies par depend karega. Hamari taraf se diye gaye figures kisi bhi official loan approval ya disbursal ka alternative nahi hain. Har case me apne bank ya financial institution se confirmation lein.
-        </p>
+        </p> <hr>
       </div>
     </footer>
     
+
+
+
+
+
+    <!-- aos--------- -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+
+
+
+
   <script src="emi.js"></script>
 
 </body>
