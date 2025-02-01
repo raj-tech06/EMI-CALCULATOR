@@ -1,27 +1,28 @@
 
-const loanAmountInput = document.getElementById('loan-amount');
-const interestRateInput = document.getElementById('interest-rate');
-const loanTermInput = document.getElementById('loan-term');
-const loanAmountDisplay = document.getElementById('loan-amount-display');
-const interestRateDisplay = document.getElementById('interest-rate-display');
-const loanTermDisplay = document.getElementById('loan-term-display');
-const loanAmountNumberInput = document.getElementById('loan-amount-input');
-const interestRateNumberInput = document.getElementById('interest-rate-input');
-const loanTermNumberInput = document.getElementById('loan-term-input');
-const monthlyEmiDisplay = document.getElementById('monthly-emi');
-const totalInterestDisplay = document.getElementById('total-interest');
-const totalPaymentDisplay = document.getElementById('total-payment');
+let loanAmountInput = document.querySelector("#loan-amount");
+let interestRateInput = document.querySelector("#interest-rate");
+let loanTermInput = document.querySelector("#loan-term");
+let loanAmountDisplay = document.querySelector("#loan-amount-display");
+let interestRateDisplay = document.querySelector("#interest-rate-display");
+let loanTermDisplay = document.querySelector("#loan-term-display");
+let loanAmountNumberInput = document.querySelector("#loan-amount-input");
+let interestRateNumberInput = document.querySelector("#interest-rate-input");
+let loanTermNumberInput = document.querySelector("#loan-term-input");
+let monthlyEmiDisplay = document.querySelector("#monthly-emi");
+let totalInterestDisplay = document.querySelector("#total-interest");
+let totalPaymentDisplay = document.querySelector("#total-payment");
 
 let chart;
 
+// fot emi----------
 function updateEMI() {
-    const loanAmount = parseFloat(loanAmountInput.value);
-    const interestRate = parseFloat(interestRateInput.value) / 100 / 12; // मासिक ब्याज दर
-    const loanTerm = parseInt(loanTermInput.value) * 12; // महीनों में अवधि
+    let loanAmount = parseFloat(loanAmountInput.value);
+    let interestRate = parseFloat(interestRateInput.value) / 100 / 12;
+    let loanTerm = parseInt(loanTermInput.value) * 12;
     
-    const emi = calculateEMI(loanAmount, interestRate, loanTerm);
-    const totalPayment = emi * loanTerm;
-    const totalInterest = totalPayment - loanAmount;
+    let emi = calculateEMI(loanAmount, interestRate, loanTerm);
+    let totalPayment = emi * loanTerm;
+    let totalInterest = totalPayment - loanAmount;
     
     monthlyEmiDisplay.textContent = '₹' + emi.toLocaleString('en-IN', {maximumFractionDigits: 0});
     totalInterestDisplay.textContent = '₹' + totalInterest.toLocaleString('en-IN', {maximumFractionDigits: 0});
@@ -34,6 +35,8 @@ function calculateEMI(loanAmount, interestRate, loanTerm) {
     return (loanAmount * interestRate * Math.pow(1 + interestRate, loanTerm)) / (Math.pow(1 + interestRate, loanTerm) - 1);
 }
 
+
+// chart js---------
 function updateChart(principal, interest) {
     const ctx = document.getElementById('emi-chart').getContext('2d');
     
@@ -53,9 +56,17 @@ function updateChart(principal, interest) {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'black'  
+                    }
+                }
+            }
         }
     });
 }
+
 
 function updateInputFromSlider(slider, input, display, prefix = '', suffix = '') {
     const value = parseFloat(slider.value);
@@ -106,7 +117,7 @@ updateEMI();
   
         Swal.fire({
           html: `<iframe src="calculator.html" frameborder="0"></iframe>`, // Embed your own page inside iframe
-          width: '80%',
+          width: '100%',
           heightAuto: false,
           showCloseButton: true, 
           showConfirmButton: false, // Hide the confirm button

@@ -21,8 +21,8 @@
     <div class="navbar" data-aos="fade-down" data-aos-duration="1200" data-aos-easing="ease-out">
         <input type="checkbox" id="menuToggle" class="menu-toggle" />
         <label for="menuToggle" class="menu-icon">&#9776;</label>
-        <ul>
-            <li><a href="#">Home</a></li>
+        <ul  data-aos="fade-up-right"  data-aos-duration="2200">
+            <li data-aos="fade-up-right"  data-aos-duration="2200"><a href="#" >Home</a></li>
             <li><a href="#about-section">About</a></li>
             <li><a href="#services-footer">Services</a></li>
             <li><a href="#" onclick="openSweetAlert(event)">Switch</a></li>
@@ -43,7 +43,7 @@
             </div>
             <div class="input-group" data-aos="fade-up" data-aos-duration="1300" data-aos-delay="400">
                 <label for="loan-amount">लोन की राशि (₹):</label>
-                <input type="range" id="loan-amount" min="1000" max="10000000" step="10000" value="1000000">
+                <input type="range" id="loan-amount" min="1000" max="10000000" step="10000" value="1000000" >
                 <div class="value-display">
                     <span id="loan-amount-display">₹10,00,000</span>
                     <input type="number" id="loan-amount-input" min="1000" max="10000000" step="10000" value="1000000" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="600">
@@ -96,7 +96,7 @@
     </div>
 
     <section id="about-section" data-aos="zoom-in-up" data-aos-duration="1500">
-        <img src="img/About-Us-PNG-Isolated-File.png" width="200px" height="100px">
+        <img src="img/About-Us-PNG-Isolated-File.png" width="200px" height="100px" data-aos="zoom-in-down" data-aos-duration="1500">
         <p>We are a passionate team dedicated to providing innovative solutions for your needs. Our mission is to empower businesses and individuals by offering tailored services that drive success. With years of experience and a focus on excellence, we are committed to making a difference.</p>
     </section>
 
@@ -115,11 +115,7 @@
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1200, // Default duration for all animations
-            easing: 'ease-out-quint', // Smooth easing for all animations
-            once: false, // Animations will trigger every time they come into view
-        });
+        AOS.init()
     </script>
 
     <script src="emi.js"></script>
